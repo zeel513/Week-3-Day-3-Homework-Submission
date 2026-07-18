@@ -74,6 +74,73 @@
 
   /* WRITE YOUR HOMEWORK SCRIPTS BELOW HERE */
 
+  function halfNumber(num) {
+      var half = num / 2;
+      document.getElementById("solution").innerHTML = 'Half of ' + num + ' is ' + half;
+  }
+
+  var halfButton = document.getElementById("half-button");
+  halfButton.addEventListener("click", function() {
+    var num = parseFloat(document.getElementById("half-input").value);
+    if (isNaN(num)) {
+      document.getElementById("solution").innerHTML = "Please enter a valid number for Half.";
+      return;
+    }
+    halfNumber(num);
+  });
+
+  function percentOf(part, whole) {
+      if (whole === 0) {
+        document.getElementById("solution").innerHTML = "Whole cannot be 0.";
+        return;
+      }
+      var percent = (part / whole) * 100;
+      document.getElementById("solution").innerHTML = part + ' is ' + percent + '% of ' + whole;
+  }
+
+  var percentButton = document.getElementById("percent-button");
+  percentButton.addEventListener("click", function() {
+    var part = parseFloat(document.getElementById("percent1-input").value);
+    var whole = parseFloat(document.getElementById("percent2-input").value);
+    if (isNaN(part) || isNaN(whole)) {
+      document.getElementById("solution").innerHTML = "Please enter valid numbers for Fraction and Whole.";
+      return;
+    }
+    percentOf(part, whole);
+  });
+
+  function checkInteger(num) {
+      var result = Number.isInteger(num)
+        ? num + ' is an integer.'
+        : num + ' is not an integer.';
+      document.getElementById("solution").innerHTML = result;
+  }
+
+  var intButton = document.getElementById("int-button");
+  intButton.addEventListener("click", function() {
+    var num = parseFloat(document.getElementById("int-input").value);
+    if (isNaN(num)) {
+      document.getElementById("solution").innerHTML = "Please enter a valid number for Integer.";
+      return;
+    }
+    checkInteger(num);
+  });
+
+  function areaOfCircle(radius) {
+      var area = Math.PI * radius * radius;
+      document.getElementById("solution").innerHTML = 'The area for a circle with radius ' + radius + ' is ' + area.toFixed(2);
+  }
+
+  var areaButton = document.getElementById("area-button");
+  areaButton.addEventListener("click", function() {
+    var radius = parseFloat(document.getElementById("area-input").value);
+    if (isNaN(radius)) {
+      document.getElementById("solution").innerHTML = "Please enter a valid radius.";
+      return;
+    }
+    areaOfCircle(radius);
+  });
+
 
 </script>
 </body>
